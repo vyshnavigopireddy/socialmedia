@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 
@@ -20,7 +19,10 @@ function Navbar({ isAuthenticated, setAuth }) {
             <Button color="inherit" component={Link} to="/register">Register</Button>
           </>
         ) : (
-          <Button color="inherit" onClick={handleLogout}>Logout</Button>
+          <>
+            <Button color="inherit" component={Link} to="/profile">Profile</Button>
+            <Button color="inherit" onClick={handleLogout}>Logout</Button>
+          </>
         )}
       </Toolbar>
     </AppBar>

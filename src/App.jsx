@@ -1,9 +1,9 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Login from './pages/Login';  // Corrected import path
-import Register from './pages/Register'; // Corrected import path
-import Home from './pages/Home'; // Corrected import path
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import Profile from './pages/Profile'; // Import the Profile component
 import Navbar from './components/Navbar';
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
         <Route path="/login" element={!isAuthenticated ? <Login setAuth={setIsAuthenticated} /> : <Navigate to="/" />} />
         <Route path="/register" element={!isAuthenticated ? <Register setAuth={setIsAuthenticated} /> : <Navigate to="/" />} />
         <Route path="/" element={isAuthenticated ? <Home setAuth={setIsAuthenticated} /> : <Navigate to="/login" />} />
+        <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} /> {/* Added profile route */}
       </Routes>
     </BrowserRouter>
   );
